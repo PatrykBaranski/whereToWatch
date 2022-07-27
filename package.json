@@ -1,0 +1,17 @@
+{
+  "name": "wheretowatchapp",
+  "version": "1.0.0",
+  "description": "app to serch netflix library",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "author": "Patryk Baranski",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.6.2"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.2"
+  }
+}

@@ -1,0 +1,117 @@
+:root {
+  --red: rgba(255, 0, 52, 1);
+  --background-body-grey: rgba(53, 55, 66, 1);
+  --white: #f8f9fa;
+  --box-shadow-color: #495057;
+  --main-font-color: #343a40;
+  --nav-font-size: 1.8rem;
+  --main-radius: 1.2rem;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 65.5%;
+  font-family: "Nunito", sans-serif;
+  columns: var(--main-font-color);
+}
+
+body {
+  background: linear-gradient(
+    90deg,
+    var(--background-body-grey) 18%,
+    var(--red) 89%
+  );
+}
+.svg-inline--fa {
+  color: var(--red);
+}
+.container {
+  max-width: 120rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 5fr 95fr;
+  row-gap: 2.4rem;
+  margin: 12rem auto;
+  background-color: var(--white);
+  box-shadow: 0 0 1rem var(--box-shadow-color);
+  border-radius: var(--main-radius);
+  padding-top: 3.2rem;
+}
+.main-nav {
+  font-size: var(--nav-font-size);
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  padding: 0 3.2rem;
+}
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+.search__form {
+  flex: 0 0 50rem;
+  background-color: #ced4da;
+  border-radius: 4rem;
+}
+.search__form form {
+  display: flex;
+  align-items: stretch;
+}
+.logo span {
+  color: var(--red);
+}
+.btn,
+.search__field {
+  border: none;
+  border-radius: var(--main-radius);
+}
+.search__field {
+  background: none;
+  font-size: var(--nav-font-size);
+  flex-grow: 2;
+  padding: 1rem;
+}
+.search__field:focus {
+  outline: none;
+}
+.btn {
+  background: linear-gradient(
+    90deg,
+    var(--background-body-grey) 18%,
+    var(--red) 89%
+  );
+  color: #f8f9fa;
+  padding: 1.6rem 4.8rem;
+  border-radius: 4rem;
+  transition: transform 0.3s ease-in-out;
+}
+.btn:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.search__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.search__btn .svg-inline--fa {
+  font-size: 1.8rem;
+  color: var(--white);
+}
+.search-results {
+  grid-column: 1/2;
+  background-color: #ced4da;
+  border-radius: 0 0 0 var(--main-radius);
+}
+.movie-info {
+  grid-column: 2/-1;
+  background-color: var(--white);
+  border-radius: 0 0 var(--main-radius) 0;
+}
