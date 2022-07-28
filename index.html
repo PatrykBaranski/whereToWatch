@@ -38,29 +38,40 @@
               ></span>
             </h1>
           </li>
-          <li class="search__form">
+          <li class="search-form">
             <form>
               <input
                 type="text"
-                class="search__field"
-                placeholder="Search your next favourite movie"
+                class="search-field"
+                placeholder="Find your next favourite movie"
               />
-              <button class="btn search__btn">
+              <button class="btn search-btn">
                 <span class="fa-solid fa-magnifying-glass"></span>
                 <span> SEARCH</span>
               </button>
             </form>
           </li>
           <li>
-            <button class="btn watchlist__btn">
-              <span class="fa-solid fa-clapperboard"></span>
-              <span>MY WATCHLIST</span>
-            </button>
+            <div class="watchlist">
+              <button class="btn watchlist-btn">
+                <span class="fa-solid fa-clapperboard"></span>
+                <span>MY WATCHLIST</span>
+              </button>
+              <div class="watchlist-items active">
+                <span class="fa-solid fa-triangle-exclamation"></span>
+                <p>No movies added at this moment ;)</p>
+              </div>
+            </div>
           </li>
         </ul>
       </nav>
       <section class="search-results"></section>
-      <section class="movie-info"></section>
+      <section class="movie-info">
+        <div>
+          <span class="fa-solid fa-ticket"></span>
+          <p>Start by searching a movie. Have fun!</p>
+        </div>
+      </section>
     </div>
   </body>
 </html>
