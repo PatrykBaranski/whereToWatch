@@ -57,19 +57,54 @@
                 <span class="fa-solid fa-clapperboard"></span>
                 <span>MY WATCHLIST</span>
               </button>
-              <div class="watchlist-items active">
-                <span class="fa-solid fa-triangle-exclamation"></span>
-                <p>No movies added at this moment ;)</p>
+              <div class="watchlist-items">
+                <div class="watchlist-item placeholder">
+                  <span class="fa-solid fa-triangle-exclamation"></span>
+                  <p>No movies added at this moment ;)</p>
+                </div>
+                <div class="watchlist-item"></div>
               </div>
             </div>
           </li>
         </ul>
       </nav>
       <section class="search-results"></section>
-      <section class="movie-info">
-        <div>
-          <span class="fa-solid fa-ticket"></span>
-          <p>Start by searching a movie. Have fun!</p>
+      <section class="movie">
+        <div class="placeholder">
+          <span class="fa-light fa-face-grin"></span>
+          <p>Start by searching for a movie or actor. Have fun!</p>
+        </div>
+        <div class="movie-poster-container">
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTUxNzc0OTIxMV5BMl5BanBnXkFtZTgwNDI3NzU2NDE@._V1_SX300.jpg"
+            alt="poster of the movie: ex machina"
+          />
+        </div>
+        <div class="movie-info-container">
+          <div class="movie-title-container">
+            <p class="subheading video-type">MOVIE</p>
+            <h2 class="movie-title">Ex Machina</h2>
+          </div>
+          <p class="movie-synopsis">
+            A coder at a tech company wins a week-long retreat at the compound
+            of his company&#39;s CEO, where he&#39;s tasked with testing a new
+            artificial intelligence.
+          </p>
+          <div class="basic-info">
+            <span>Release date:</span>
+            <p class="release-date">2015</p>
+            <span>IMBD rating:</span>
+            <p class="imbd-rating">7.7</p>
+            <span>Runtime:</span>
+            <p class="runtime">120 min</p>
+          </div>
+          <div claas="country-list-container">
+            <h3>Movie is available on Netflix in this countries:</h3>
+            <ul class="country-list">
+              <li class="country">United kingdom</li>
+              <li class="country">United States</li>
+            </ul>
+          </div>
         </div>
       </section>
     </div>
