@@ -24,7 +24,7 @@
       defer
       src="/node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"
     ></script>
-    <script type="module" src="#"></script>
+    <script type="module" src="src/controller.js"></script>
     <title>WhereToWatch? / Search netflix library for all countries</title>
   </head>
   <body>
@@ -68,13 +68,33 @@
           </li>
         </ul>
       </nav>
-      <section class="search-results"></section>
+      <section class="search-results">
+        <ul class="results">
+          <!-- <li class="previev">
+            <a class="previev-link" href="#">
+              <div class="previev-poster-container">
+                <img
+                  class="previev-poster"
+                  src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTUxNzc0OTIxMV5BMl5BanBnXkFtZTgwNDI3NzU2NDE@._V1_SX300.jpg"
+                  alt="poster of the movie: ex machina"
+                />
+              </div>
+              <div class="previev-info">
+                <h3 class="">Ex Machina</h3>
+                <p>2015</p>
+                <p>7.7</p>
+                <p>120 min</p>
+              </div>
+            </a> 
+          </li>-->
+        </ul>
+      </section>
       <section class="movie">
         <div class="placeholder">
           <span class="fa-light fa-face-grin"></span>
           <p>Start by searching for a movie or actor. Have fun!</p>
         </div>
-        <div class="movie-poster-container">
+        <!-- <div class="movie-poster-container">
           <img
             src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTUxNzc0OTIxMV5BMl5BanBnXkFtZTgwNDI3NzU2NDE@._V1_SX300.jpg"
             alt="poster of the movie: ex machina"
@@ -99,15 +119,17 @@
             <p class="runtime">120 min</p>
           </div>
           <div class="country-list-container">
-            <h3>Movie is available on <span>Netflix</span> in this countries:</h3>
+            <h3>
+              Movie is available on <span>Netflix</span> in this countries:
+            </h3>
             <ul class="country-list">
-              <li class="country"><a href="#">United kingdom</a</li>
+              <li class="country"><a href="#">United kingdom</a></li>
               <li class="country"><a href="#">United States</a></li>
-              
             </ul>
-          </div>
+          </div> -->
         </div>
       </section>
     </div>
+    <div class="overlay"></div>
   </body>
 </html>
