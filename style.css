@@ -64,7 +64,7 @@ a:visited {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 7fr 93fr;
   row-gap: 2.4rem;
-  margin: 12rem auto;
+  margin: 9rem auto;
   background-color: var(--white);
   box-shadow: 0 0 1rem var(--box-shadow-color);
   border-radius: var(--mid-radius);
@@ -207,7 +207,6 @@ a:visited {
   margin: 0 auto;
   text-align: center;
   font-size: 2.4rem;
-  display: none;
 }
 .movie li {
   text-align: center;
@@ -271,16 +270,21 @@ h3 span {
 .results {
   display: flex;
   flex-direction: column;
+  margin-top: 0.1rem;
 }
 .previev-link:link,
 .previev-link:visited {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 9fr;
   column-gap: 3rem;
   padding: 1.6rem;
 }
 .previev-link:hover,
 .previev-link:active {
+  background-color: var(--light-red);
+  transform: translateY(-0.1rem);
+}
+.previev-link--active {
   background-color: var(--light-red);
 }
 .previev-poster-container {
