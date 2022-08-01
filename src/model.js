@@ -10,15 +10,16 @@ export const state = {
   search: { results: [] },
 };
 const createMovieObject = function (data) {
+  const [movieData, countryData] = data;
   return {
-    netflixId: data[0].netflix_id,
-    img: data[0].large_image,
-    releaseDate: data[0].year,
-    synopsis: data[0].synopsis,
-    title: data[0].title,
-    titleType: data[0].title_type,
-    runtime: data[0].runtime,
-    countryList: data[1].results,
+    netflixId: movieData.netflix_id,
+    img: movieData.large_image,
+    releaseDate: movieData.year,
+    synopsis: movieData.synopsis,
+    title: movieData.title,
+    titleType: movieData.title_type,
+    runtime: movieData.runtime,
+    countryList: countryData.results,
   };
 };
 export const loadMovie = async function (id) {
