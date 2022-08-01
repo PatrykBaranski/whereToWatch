@@ -17,7 +17,7 @@ const createMovieObject = function (data) {
     synopsis: data[0].synopsis,
     title: data[0].title,
     titleType: data[0].title_type,
-    runtime: data[0].runtime / 60,
+    runtime: data[0].runtime,
     countryList: data[1].results,
   };
 };
