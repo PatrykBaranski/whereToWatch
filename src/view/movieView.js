@@ -1,3 +1,4 @@
+import { findFlagUrlByCountryName } from "country-flags-svg";
 class MovieView {
   _parentEl = document.querySelector(".movie");
   _data;
@@ -38,6 +39,7 @@ class MovieView {
           : "No info about leghnt of tv series"
       }</p>
     </div>
+    </div>
     <div class="country-list-container">
       <h3>
         ${this._data.titleType[0].toUpperCase()}${this._data.titleType.slice(
@@ -45,18 +47,16 @@ class MovieView {
     )} is available on <span>Netflix</span> in this countries:
       </h3>
       <ul class="country-list">
-        <li class="country"><a href="#">United kingdom</a></li>
-        <li class="country"><a href="#">United States</a></li>
-        <li class="country"><a href="#">United States</a></li>
-        <li class="country"><a href="#">United States</a></li>
-        <li class="country"><a href="#">United States</a></li>
-        <li class="country"><a href="#">United States</a></li>
-        <li class="country"><a href="#">United States</a></li>
+        ${this._data.countryList
+          .map((el) => this._generateCountryListMarkup(el.country.trim()))
+          .join("")}
       </ul>
     </div>`;
   }
   _generateCountryListMarkup(country) {
-    return `<li class="country"><a href="#">${country}</a></li>`;
+    return `<li class="country"><a href="#"><img alt="flag of country: ${country}" src="${findFlagUrlByCountryName(
+      country
+    )}"></a></li>`;
   }
   _clear() {
     this._parentEl.innerHTML = "";

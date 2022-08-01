@@ -261,21 +261,28 @@ h3 span {
 }
 .country-list-container {
   margin-top: 3.2rem;
+  grid-column: 1/-1;
 }
 .country-list-container h3 {
   margin-bottom: 1.2rem;
+  font-size: 2.4rem;
+  font-weight: 700;
 }
 .country-list {
   padding: 1.2rem;
   box-shadow: 0 0 1rem var(--box-shadow-light-color);
   border-radius: var(--mid-radius);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
 }
 .country-list .country a {
   margin: 1.2rem 0;
   font-size: 1.8rem;
+}
+.country-list img {
+  width: 3.2rem;
+  aspect-ratio: 3/2;
 }
 .results {
   display: flex;
