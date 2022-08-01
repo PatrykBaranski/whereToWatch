@@ -1,12 +1,7 @@
 import { findFlagUrlByCountryName } from "country-flags-svg";
-class MovieView {
+import View from "./view";
+class MovieView extends View {
   _parentEl = document.querySelector(".movie");
-  _data;
-  render(data) {
-    this._clear();
-    this._data = data;
-    this._parentEl.insertAdjacentHTML("afterbegin", this._genrateMarkup());
-  }
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((ev) =>
       window.addEventListener(ev, handler)
@@ -36,7 +31,7 @@ class MovieView {
       <p class="runtime">${
         this._data.titleType === "movie"
           ? this._data.runtime
-          : "No info about leghnt of tv series"
+          : "No info about leghnt for tv series"
       }</p>
     </div>
     </div>
@@ -57,9 +52,6 @@ class MovieView {
     return `<li class="country"><a href="#"><img alt="flag of country: ${country}" src="${findFlagUrlByCountryName(
       country
     )}"></a></li>`;
-  }
-  _clear() {
-    this._parentEl.innerHTML = "";
   }
 }
 export default new MovieView();

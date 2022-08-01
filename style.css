@@ -82,12 +82,12 @@ a:visited {
   align-items: center;
   justify-content: space-between;
 }
-.search-form {
+.search-form-container {
   flex: 0 0 50rem;
   background-color: #ced4da;
   border-radius: 4rem;
 }
-.search-form form {
+.search-form-container form {
   display: flex;
   align-items: stretch;
 }
@@ -275,6 +275,7 @@ h3 span {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
+  row-gap: 1rem;
 }
 .country-list .country a {
   margin: 1.2rem 0;
