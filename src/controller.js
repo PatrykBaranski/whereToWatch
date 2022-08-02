@@ -6,6 +6,7 @@ const controlMovie = async function () {
   try {
     const id = window.location.hash.slice(1);
     if (!id) return;
+    movieView.renderSpiner();
     await model.loadMovie(id);
     movieView.render(model.state.movie);
   } catch (err) {
@@ -14,6 +15,7 @@ const controlMovie = async function () {
 };
 const controlSearch = async function () {
   if (!searchView.query) return;
+  resultsView.renderSpiner();
   await model.loadSearch(searchView.query);
   resultsView.render(model.state.search.results);
 };

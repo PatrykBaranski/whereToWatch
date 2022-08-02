@@ -45,6 +45,50 @@ a:visited {
   font-weight: 700;
   transition: all 0.3s ease-in-out;
 }
+.spinner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12rem;
+  width: 12rem;
+  font-size: 1.6rem;
+}
+.movie .spinner {
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+  align-self: center;
+  justify-self: center;
+}
+.results .spinner {
+  margin: auto auto;
+}
+.spinner-element {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 8px solid transparent;
+  animation: rotate var(--duration) var(--timing) infinite;
+}
+.spinner-element--red {
+  border-top-color: var(--red);
+  --duration: 1.5s;
+  --timing: ease-in-out;
+}
+.spinner-element--gray {
+  border-left-color: var(--main-font-color);
+  --duration: 2s;
+  --timing: ease-out;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .active,
 .watchlist .active {
   opacity: 1;
@@ -63,13 +107,14 @@ a:visited {
   max-width: 120rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 7fr 93fr;
+  grid-template-rows: 5fr 100fr;
   row-gap: 2.4rem;
   margin: 9rem auto;
   background-color: var(--white);
   box-shadow: 0 0 1rem var(--box-shadow-color);
   border-radius: var(--mid-radius);
   padding-top: 3.2rem;
+  overflow: hidden;
 }
 .main-nav {
   font-size: var(--nav-font-size);
@@ -178,6 +223,7 @@ a:visited {
   padding: 3.2rem;
   display: grid;
   grid-template-columns: 2fr 3fr;
+  grid-template-rows: 1fr 1fr;
   column-gap: 3.2rem;
   justify-items: center;
 }
@@ -227,20 +273,20 @@ a:visited {
 .movie-poster-container {
   grid-column: 1/2;
   grid-row: 1/2;
-  align-self: start;
+  place-self: start;
   overflow: hidden;
 }
 .movie-poster-container img {
   transition: transform 0.3s ease-in-out;
   width: 100%;
   height: 100%;
-  /* height: 100%; */
 }
 .movie-poster-container img:hover {
   transform: scale(1.05);
 }
 .movie-info-container {
   grid-column: 2/-1;
+  place-self: start;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -260,6 +306,7 @@ h3 span {
   color: var(--red);
 }
 .country-list-container {
+  align-items: center;
   margin-top: 3.2rem;
   grid-column: 1/-1;
 }
@@ -287,8 +334,13 @@ h3 span {
 }
 .results {
   display: flex;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
   margin-top: 0.1rem;
+}
+.results h3 {
+  font-size: 1.6rem;
 }
 .previev-link:link,
 .previev-link:visited {
@@ -307,6 +359,7 @@ h3 span {
 }
 .previev-poster-container {
   aspect-ratio: 2/3;
+  font-size: 1rem;
 }
 .previev-poster {
   width: 100%;
