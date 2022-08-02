@@ -25,14 +25,8 @@ class MovieView extends View {
     <div class="basic-info">
       <span>Release date:</span>
       <p class="release-date">${this._data.releaseDate}</p>
-      <span>IMBD rating:</span>
-      <p class="imbd-rating">7.7</p>
-      <span>Runtime:</span>
-      <p class="runtime">${
-        this._data.titleType === "movie"
-          ? this._data.runtime
-          : "No info about leghnt for tv series"
-      }</p>
+      <span>Age Rating </span>
+      <p class="age-rating">${this._data.ageRating}</p>
     </div>
     </div>
     <div class="country-list-container">

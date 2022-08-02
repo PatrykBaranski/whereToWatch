@@ -19,6 +19,7 @@ const createMovieObject = function (data) {
     title: movieData.title,
     titleType: movieData.title_type,
     runtime: movieData.runtime,
+    ageRating: movieData.maturity_label,
     countryList: countryData.results,
   };
 };

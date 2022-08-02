@@ -295,7 +295,10 @@ a:visited {
   line-height: 1.3;
 }
 .basic-info {
+  margin-top: 2.4rem;
   display: grid;
+  row-gap: 0.6rem;
+  align-items: center;
   grid-template-columns: 1fr 1fr;
   row-gap: 0.5rem;
 }
@@ -335,7 +338,7 @@ h3 span {
 .results {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 90%;
   flex-direction: column;
   margin-top: 0.1rem;
 }
@@ -369,4 +372,31 @@ h3 span {
   display: inline;
   font-size: 1.2rem;
   font-weight: 400;
+}
+.pagination {
+  padding: 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  font-size: 1.6rem;
+}
+.pagination svg {
+  color: var(--main-font-color);
+}
+.pagination button {
+  font-size: 1.6rem;
+  width: 3.2rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: none;
+  background-color: #ced4da;
+  transition: all 0.3s ease-in-out;
+}
+.pagination button:hover {
+  cursor: pointer;
+  background-color: var(--light-red);
+}
+.pagination .btn--page--active {
+  background-color: var(--light-red);
 }
