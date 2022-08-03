@@ -11,19 +11,29 @@ const controlMovie = async function () {
     await model.loadMovie(id);
     movieView.render(model.state.movie);
   } catch (err) {
-    console.error(err);
+    console.log(err);
   }
 };
 const controlSearch = async function () {
-  if (!searchView.query) return;
-  resultsView.renderSpiner();
+  try {
+    if (!searchView.query) return;
+    resultsView.renderSpiner();
+    await model.loadSearch(searchView.query);
+    model.loadResults(model.state.search.page);
+    resultsView.render(model.state.search.resultsPerPage);
+    paginationView.render(model.state.search);
+  } catch (err) {
+    console.log(err);
+  }
+};
+const controlPagination = function () {
+  model.loadResults(model.state.search.page);
+  resultsView.render(model.state.search.resultsPerPage);
   paginationView.render(model.state.search);
-  await model.loadSearch(searchView.query, model.state.search.page);
-  resultsView.render(model.state.search.results);
 };
 const init = function () {
   movieView.addHandlerRender(controlMovie);
   searchView.addHandlerSearch(controlSearch);
-  paginationView.addHandlerPagination(controlSearch);
+  paginationView.addHandlerPagination(controlPagination);
 };
 init();

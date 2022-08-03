@@ -2,8 +2,9 @@ import View from "./view";
 class PaginationView extends View {
   _parentEl = document.querySelector(".pagination");
   _genrateMarkup() {
-    if (this._data.numberOfPages === 1) return;
-    if (this._data.page === 1) {
+    console.log(this._data.numberOfPages);
+    if (this._data.numberOfPages === 1) return "";
+    else if (this._data.page === 1) {
       return `
         <button data-page= "${this._data.page + 1}"class="btn--next">${
         this._data.page + 1
