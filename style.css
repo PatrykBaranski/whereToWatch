@@ -400,3 +400,13 @@ h3 span {
 .pagination .btn--page--active {
   background-color: var(--light-red);
 }
+.btn--page-container {
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  gap: 2.4rem;
+}
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
