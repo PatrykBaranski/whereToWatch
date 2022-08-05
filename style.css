@@ -375,9 +375,6 @@ h3 span {
 }
 .pagination {
   padding: 2.4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   height: 10%;
   font-size: 1.6rem;
 }
@@ -385,28 +382,18 @@ h3 span {
   color: var(--main-font-color);
 }
 .pagination button {
-  font-size: 1.6rem;
-  width: 3.2rem;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
+  font-size: 1.2rem;
+  width: 6.4rem;
+  aspect-ratio: 4/2;
+  /* background-color: ; */
+  border-radius: var(--mid-radius);
   border: none;
-  background-color: #ced4da;
   transition: all 0.3s ease-in-out;
 }
 .pagination button:hover {
   cursor: pointer;
   background-color: var(--light-red);
 }
-.pagination .btn--page--active {
-  background-color: var(--light-red);
-}
-.btn--page-container {
-  flex-grow: 2;
-  display: flex;
-  justify-content: center;
-  gap: 2.4rem;
-}
-.hidden {
-  opacity: 0;
-  visibility: hidden;
+.btn--next {
+  float: right;
 }
