@@ -8,3 +8,10 @@ export const AJAX = async function (url, options) {
     throw err;
   }
 };
+export const timout = function (sec) {
+  return new Promise(function (_, rejcect) {
+    setTimeout(function () {
+      rejcect(new Error(`Request took to long. Timeout after ${sec} seconds`));
+    }, sec * 1000);
+  });
+};
