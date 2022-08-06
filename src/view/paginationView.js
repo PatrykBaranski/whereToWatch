@@ -23,6 +23,7 @@ class PaginationView extends View {
     this._parentEl.addEventListener("click", (e) => {
       e.preventDefault();
       const btn = e.target.closest("button");
+      if (!btn) return;
       this._data.page = +btn.dataset.page;
       handler();
     });

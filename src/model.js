@@ -39,6 +39,7 @@ export const loadMovie = async function (id) {
       API_GET_OPTIONS
     );
     const data = await Promise.all([moviedata, countryData]);
+    console.log(data);
     state.movie = createMovieObject(data);
   } catch (err) {
     throw err;
