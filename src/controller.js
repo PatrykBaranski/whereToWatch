@@ -7,6 +7,7 @@ const controlMovie = async function () {
   try {
     const id = window.location.hash.slice(1);
     if (!id) return;
+    resultsView.update(model.state.search.resultsPerPage);
     movieView.renderSpiner();
     await model.loadMovie(id);
     movieView.render(model.state.movie);
@@ -32,7 +33,6 @@ const controlPagination = function () {
   paginationView.render(model.state.search);
 };
 const init = function () {
-  resultsView.addHandlerActive();
   movieView.addHandlerRender(controlMovie);
   searchView.addHandlerSearch(controlSearch);
   paginationView.addHandlerPagination(controlPagination);
