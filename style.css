@@ -359,6 +359,7 @@ h3 span {
 }
 .previev-link--active {
   background-color: var(--light-red);
+  transform: translateY(-0.1rem);
 }
 .previev-poster-container {
   aspect-ratio: 2/3;

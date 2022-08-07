@@ -32,6 +32,7 @@ const controlPagination = function () {
   paginationView.render(model.state.search);
 };
 const init = function () {
+  resultsView.addHandlerActive();
   movieView.addHandlerRender(controlMovie);
   searchView.addHandlerSearch(controlSearch);
   paginationView.addHandlerPagination(controlPagination);

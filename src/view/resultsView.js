@@ -2,11 +2,14 @@ import View from "./view";
 class ResultView extends View {
   _parentEl = document.querySelector(".results");
   _genrateMarkup() {
-    return this._data
-      .map(
-        (el) => ` 
-    <li class="previev">
-    <a class="previev-link" href="#${el.netflix_id}">
+    return this._data.map((el) => this._generatePreview(el)).join("");
+  }
+  _generatePreview(el) {
+    const id = window.location.hash.slice(1);
+    return `<li class="previev">
+    <a class="previev-link ${
+      id === el.netflix_id ? "previev-link--active" : ""
+    }" href="#${el.netflix_id}">
       <div class="previev-poster-container">
         <img
           class="previev-poster"
@@ -25,9 +28,16 @@ class ResultView extends View {
         <p>${el.rating > 0 ? `${(+el.rating).toFixed(2)} / 5 ` : " -- "}</p>
       </div>
     </a> 
-  </li>`
-      )
-      .join("");
+  </li>`;
+  }
+  addHandlerActive() {
+    this._parentEl.addEventListener("click", function (e) {
+      const allEl = document.querySelectorAll(".previev-link");
+      allEl.forEach((el) => el.classList.remove("previev-link--active"));
+      const el = e.target.closest(".previev-link");
+      el.classList.add("previev-link--active");
+      console.log(el);
+    });
   }
 }
 export default new ResultView();
