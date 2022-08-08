@@ -6,7 +6,6 @@ class ResultView extends View {
   }
   _generatePreview(el) {
     const id = +window.location.hash.slice(1);
-    console.log(id);
     return `<li class="previev">
     <a class="previev-link ${
       id === el.netflix_id ? "previev-link--active" : "xd"

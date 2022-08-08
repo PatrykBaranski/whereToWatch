@@ -398,3 +398,38 @@ h3 span {
 .btn--next {
   float: right;
 }
+.country-info-container {
+  max-width: 100rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: var(--white);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 1rem var(--box-shadow-light-color);
+  border-radius: var(--mid-radius);
+  padding: 2rem;
+  font-size: 1.4rem;
+}
+.country-info-container .btn-close {
+  cursor: pointer;
+  border: none;
+  background-color: var(--white);
+  text-align: right;
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+}
+.btn-close svg {
+  color: var(--light-red);
+  font-size: 2.4rem;
+}
+.country-info {
+  margin-top: 2.4rem;
+}
+.country-name {
+  font-size: 2.4rem;
+  line-height: 1.2;
+}
+.country-info-container p {
+  line-height: 1.7;
+}
