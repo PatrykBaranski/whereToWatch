@@ -100,8 +100,8 @@ a:visited {
   height: 100%;
   top: 0;
   left: 0;
-  visibility: hidden;
-  opacity: 0;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease-in-out;
 }
 .container {
   max-width: 120rem;
@@ -399,7 +399,7 @@ h3 span {
   float: right;
 }
 .country-info-container {
-  max-width: 100rem;
+  max-width: 80rem;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -409,6 +409,7 @@ h3 span {
   border-radius: var(--mid-radius);
   padding: 2rem;
   font-size: 1.4rem;
+  transition: all 0.3 ease-in-out;
 }
 .country-info-container .btn-close {
   cursor: pointer;
@@ -431,5 +432,9 @@ h3 span {
   line-height: 1.2;
 }
 .country-info-container p {
-  line-height: 1.7;
+  line-height: 1.6;
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
 }
