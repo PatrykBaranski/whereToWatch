@@ -1,12 +1,30 @@
 import View from "./view";
 class CountryView extends View {
   _parentEl = document.querySelector(".country-info");
+  _countryContainer = document.querySelector(".country-info-container");
+  _overlay = document.querySelector(".overlay");
+  addHandlerRender(handler) {
+    ["hashchange", "load"].forEach((ev) =>
+      window.addEventListener(ev, handler)
+    );
+  }
+  handlerClick() {}
+  toggleHidden() {
+    [this._countryContainer, this._overlay].forEach((el) =>
+      el.classList.toggle("hidden")
+    );
+  }
   _genrateMarkup() {
-    return `<h3 class="country-name">Argentina</h3>
+    return `<h3 class="country-name">${this._data.country}</h3>
     <div class="basic-info">
-    <span>Seasons:</span><p class="seasons-deatails"> S1:7,S2:13,S3:13,S4:13,S5:16</p>
-    <span>Audio:</span><p class="audio"> English [Original],Spanish,Brazilian Portuguese,English - Audio Description</p>
-    <span>Subtitles:</span><p class="subtitles">Subtitles: Spanish,Brazilian Portuguese,English</p>
+   ${
+     this._data.seasons
+       ? `<span>Seasons:</span><p class="seasons-deatails"> ${this._data.seasons}</p>`
+       : ""
+   }
+    <span>Audio:</span><p class="audio">${this._data.audio}</p>
+    <span>Subtitles:</span><p class="subtitles">${this._data.subtitle}</p>
   </div>`;
   }
 }
+export default new CountryView();

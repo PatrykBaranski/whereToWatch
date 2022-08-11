@@ -3,6 +3,7 @@ import movieView from "./view/movieView.js";
 import searchView from "./view/searchView.js";
 import resultsView from "./view/resultsView";
 import paginationView from "./view/paginationView.js";
+import countryView from "./view/countryView.js";
 const controlMovie = async function () {
   try {
     const id = window.location.hash.slice(1);
@@ -12,7 +13,6 @@ const controlMovie = async function () {
     await model.loadMovie(id);
     movieView.render(model.state.movie);
     console.log(model.state.movie);
-    model.loadCountry("Poland");
   } catch (err) {
     console.log(err);
   }
@@ -34,9 +34,19 @@ const controlPagination = function () {
   resultsView.render(model.state.search.resultsPerPage);
   paginationView.render(model.state.search);
 };
+const controlCountry = function () {
+  const id = window.location.hash.slice(1);
+  if (!id || isFinite(id)) return;
+  const indexOfSymbol = id.indexOf("/");
+  const countryName = id.slice(indexOfSymbol + 1).replaceAll("%20", " ");
+  model.loadCountry(countryName);
+  countryView.toggleHidden();
+  countryView.render(model.state.country);
+};
 const init = function () {
   movieView.addHandlerRender(controlMovie);
   searchView.addHandlerSearch(controlSearch);
   paginationView.addHandlerPagination(controlPagination);
+  countryView.addHandlerRender(controlCountry);
 };
 init();

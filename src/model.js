@@ -13,6 +13,7 @@ export const state = {
     page: 1,
     numberOfPages: 0,
   },
+  country: {},
 };
 const createMovieObject = function (data) {
   const [movieData, countryData] = data;
@@ -45,10 +46,11 @@ export const loadMovie = async function (id) {
   }
 };
 export const loadCountry = function (countryName) {
-  const countrData = state.movie.countryList.filter(
-    (el) => el.country.trim() === countryName
+  const [countrData] = state.movie.countryList.filter(
+    (el) => el.country.trim() === countryName.trim()
   );
   console.log(countrData);
+  state.country = countrData;
 };
 export const loadSearch = async function (query) {
   try {
@@ -64,6 +66,7 @@ export const loadSearch = async function (query) {
 };
 export const loadResults = function (page) {
   state.search.page = page;
+  if (!state.search.results) return;
   state.search.numberOfPages = Math.ceil(
     state.search.results.length / NUMBER_OF_RESULTS_PER_PAGE
   );
