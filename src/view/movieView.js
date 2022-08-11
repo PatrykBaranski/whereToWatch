@@ -43,7 +43,9 @@ class MovieView extends View {
     </div>`;
   }
   _generateCountryListMarkup(country) {
-    return `<li class="country"><a href="#"><img alt="flag of country: ${country}" src="${findFlagUrlByCountryName(
+    return `<li class="country"><a href="#${
+      this._data.netflixId
+    }/${country}"><img alt="flag of country: ${country}" src="${findFlagUrlByCountryName(
       country
     )}"></a></li>`;
   }

@@ -39,11 +39,16 @@ export const loadMovie = async function (id) {
       API_GET_OPTIONS
     );
     const data = await Promise.all([moviedata, countryData]);
-    console.log(data);
     state.movie = createMovieObject(data);
   } catch (err) {
     throw err;
   }
+};
+export const loadCountry = function (countryName) {
+  const countrData = state.movie.countryList.filter(
+    (el) => el.country.trim() === countryName
+  );
+  console.log(countrData);
 };
 export const loadSearch = async function (query) {
   try {

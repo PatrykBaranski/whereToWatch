@@ -6,11 +6,13 @@ import paginationView from "./view/paginationView.js";
 const controlMovie = async function () {
   try {
     const id = window.location.hash.slice(1);
-    if (!id) return;
+    if (!id || !isFinite(id)) return;
     resultsView.update(model.state.search.resultsPerPage);
     movieView.renderSpiner();
     await model.loadMovie(id);
     movieView.render(model.state.movie);
+    console.log(model.state.movie);
+    model.loadCountry("Poland");
   } catch (err) {
     console.log(err);
   }
