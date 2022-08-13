@@ -48,5 +48,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearch);
   paginationView.addHandlerPagination(controlPagination);
   countryView.addHandlerRender(controlCountry);
+  countryView.handlerClick();
 };
 init();

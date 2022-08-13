@@ -4,11 +4,24 @@ class CountryView extends View {
   _countryContainer = document.querySelector(".country-info-container");
   _overlay = document.querySelector(".overlay");
   addHandlerRender(handler) {
-    ["hashchange", "load"].forEach((ev) =>
-      window.addEventListener(ev, handler)
-    );
+    ["hashchange"].forEach((ev) => window.addEventListener(ev, handler));
   }
-  handlerClick() {}
+  handlerClick() {
+    [this._countryContainer, this._overlay].forEach((el) => {
+      el.addEventListener("click", (e) => {
+        const btn = e.target.closest("button");
+        const overlay = e.target.closest(".overlay");
+        if (!btn && !overlay) return;
+        const index = window.location.hash.indexOf("/");
+        history.replaceState(
+          null,
+          null,
+          window.location.pathname + "#" + window.location.hash.slice(1, index)
+        );
+        this.toggleHidden();
+      });
+    });
+  }
   toggleHidden() {
     [this._countryContainer, this._overlay].forEach((el) =>
       el.classList.toggle("hidden")
@@ -18,8 +31,8 @@ class CountryView extends View {
     return `<h3 class="country-name">${this._data.country}</h3>
     <div class="basic-info">
    ${
-     this._data.seasons
-       ? `<span>Seasons:</span><p class="seasons-deatails"> ${this._data.seasons}</p>`
+     this._data.season_detail
+       ? `<span>Seasons:</span><p class="seasons-deatails"> ${this._data.season_detail}</p>`
        : ""
    }
     <span>Audio:</span><p class="audio">${this._data.audio}</p>

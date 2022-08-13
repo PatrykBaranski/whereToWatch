@@ -102,6 +102,7 @@ a:visited {
   left: 0;
   backdrop-filter: blur(4px);
   transition: all 0.3s ease-in-out;
+  z-index: 999;
 }
 .container {
   max-width: 120rem;
@@ -410,6 +411,7 @@ h3 span {
   padding: 2rem;
   font-size: 1.4rem;
   transition: all 0.3 ease-in-out;
+  z-index: 9999;
 }
 .country-info-container .btn-close {
   cursor: pointer;
