@@ -13,10 +13,12 @@ export const AJAX = async function (url, options) {
       fetch(url, options),
       timout(TIMEOUT_SEC),
     ]);
+    console.log(response);
     const data = await response.json();
     if (!response.ok) throw new Error(data.message, response.status);
     return data;
   } catch (err) {
+    console.log(err);
     throw err;
   }
 };

@@ -49,7 +49,6 @@ export const loadCountry = function (countryName) {
   const [countrData] = state.movie.countryList.filter(
     (el) => el.country.trim() === countryName.trim()
   );
-  console.log(countrData);
   state.country = countrData;
 };
 export const loadSearch = async function (query) {
@@ -59,6 +58,10 @@ export const loadSearch = async function (query) {
       `${API_SEARCH_URL}%22${query.replaceAll(" ", "%20")}%22'`,
       API_GET_OPTIONS
     );
+    if (!results)
+      throw new Error(
+        "Sorry we didn't find nothing for this query. Pleas try again"
+      );
     state.search.results = results;
   } catch (err) {
     throw err;
