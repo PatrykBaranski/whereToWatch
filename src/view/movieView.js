@@ -28,6 +28,9 @@ class MovieView extends View {
       <span>Age Rating </span>
       <p class="age-rating">${this._data.ageRating}</p>
     </div>
+    <div class="container-btn-watchlist">
+    <button class="btn-small btn-addWatchlist"><span class="fa-solid fa-eye"></span> I want to see</button>
+    </div>
     </div>
     <div class="country-list-container">
       <h3>
