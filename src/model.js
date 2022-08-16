@@ -42,6 +42,11 @@ export const loadMovie = async function (id) {
     );
     const data = await Promise.all([moviedata, countryData]);
     state.movie = createMovieObject(data);
+    if (state.watchlist.some((el) => el.netflixId === id)) {
+      state.movie.bookmarked = true;
+    } else {
+      state.movie.bookmarked = false;
+    }
   } catch (err) {
     throw err;
   }
@@ -79,7 +84,26 @@ export const loadResults = function (page) {
     page * NUMBER_OF_RESULTS_PER_PAGE
   );
 };
-export const loadWatchlist = function () {
-  if (state.watchlist.includes(state.movie)) return;
-  state.watchlist.push(state.movie);
+const persistWatchlist = function () {
+  localStorage.setItem("watchlist", JSON.stringify(state.watchlist));
 };
+export const addToWatchlist = function (movie) {
+  state.watchlist.push(movie);
+  if (state.movie.netflixId === movie.netflixId) state.movie.bookmarked = true;
+  console.log(state.watchlist);
+  persistWatchlist();
+};
+export const removeFromWatchlist = function (id) {
+  const indexOfMovie = state.watchlist.findIndex((el) => el.netflixId === id);
+  console.log(indexOfMovie);
+  state.watchlist.splice(indexOfMovie, 1);
+  state.movie.bookmarked = false;
+  console.log(state.watchlist);
+  persistWatchlist();
+};
+const init = function () {
+  const storage = localStorage.getItem("watchlist");
+  console.log(state.watchlist);
+  if (storage) state.watchlist = JSON.parse(storage);
+};
+init();

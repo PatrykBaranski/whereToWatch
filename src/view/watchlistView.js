@@ -11,9 +11,17 @@ class WatchlistView extends View {
       if (btn) this._parentEl.classList.toggle("hidden");
     });
   }
+  addPlaceholder() {
+    this._parentEl.insertAdjacentHTML(
+      "afterbegin",
+      `  <li class="watchlist-item-placeholder">
+    <span class="fa-solid fa-triangle-exclamation"></span>
+    <p>No movies added at this moment ;)</p>
+  </li>`
+    );
+  }
   _genrateMarkup() {
     const id = window.location.hash.slice(1);
-    console.log(this._data);
     return this._data
       .map((el) => {
         console.log(el);

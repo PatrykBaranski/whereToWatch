@@ -45,10 +45,20 @@ const controlCountry = function () {
   countryView.render(model.state.country);
 };
 const controlWatchlist = function () {
-  model.loadWatchlist();
+  if (!model.state.movie.bookmarked) model.addToWatchlist(model.state.movie);
+  else model.removeFromWatchlist(model.state.movie.netflixId);
+  movieView.render(model.state.movie);
+  watchlistView.render(model.state.watchlist);
+  if (!model.state.watchlist[0]) {
+    watchlistView.addPlaceholder();
+  }
+};
+const renderBookmark = function () {
+  if (!model.state.watchlist[0]) return;
   watchlistView.render(model.state.watchlist);
 };
 const init = function () {
+  renderBookmark();
   movieView.addHandlerRender(controlMovie);
   searchView.addHandlerSearch(controlSearch);
   paginationView.addHandlerPagination(controlPagination);

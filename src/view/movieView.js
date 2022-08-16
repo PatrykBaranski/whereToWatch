@@ -11,7 +11,6 @@ class MovieView extends View {
     this._parentEl.addEventListener("click", (e) => {
       const btn = e.target.closest(".btn-addWatchlist");
       if (!btn) return;
-      btn.classList.toggle("active");
       handler();
     });
   }
@@ -37,7 +36,9 @@ class MovieView extends View {
       <p class="age-rating">${this._data.ageRating}</p>
     </div>
     <div class="container-btn-watchlist">
-    <button class="btn-small btn-addWatchlist"><span class="fa-solid fa-eye"></span> I want to see</button>
+    <button class="btn-small btn-addWatchlist ${
+      this._data.bookmarked ? "active" : ""
+    }"><span class="fa-solid fa-eye"></span> I want to see</button>
     </div>
     </div>
     <div class="country-list-container">
