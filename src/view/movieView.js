@@ -7,6 +7,14 @@ class MovieView extends View {
       window.addEventListener(ev, handler)
     );
   }
+  addHandlerBtnWatchlist(handler) {
+    this._parentEl.addEventListener("click", (e) => {
+      const btn = e.target.closest(".btn-addWatchlist");
+      if (!btn) return;
+      btn.classList.toggle("active");
+      handler();
+    });
+  }
   _genrateMarkup() {
     return `<div class="movie-poster-container">
     <img

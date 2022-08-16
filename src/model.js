@@ -13,6 +13,7 @@ export const state = {
     page: 1,
     numberOfPages: 0,
   },
+  watchlist: [],
   country: {},
 };
 const createMovieObject = function (data) {
@@ -77,4 +78,8 @@ export const loadResults = function (page) {
     page * NUMBER_OF_RESULTS_PER_PAGE - NUMBER_OF_RESULTS_PER_PAGE,
     page * NUMBER_OF_RESULTS_PER_PAGE
   );
+};
+export const loadWatchlist = function () {
+  if (state.watchlist.includes(state.movie)) return;
+  state.watchlist.push(state.movie);
 };

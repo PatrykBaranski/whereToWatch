@@ -4,15 +4,16 @@ import searchView from "./view/searchView.js";
 import resultsView from "./view/resultsView";
 import paginationView from "./view/paginationView.js";
 import countryView from "./view/countryView.js";
+import watchlistView from "./view/watchlistView.js";
 const controlMovie = async function () {
   try {
     const id = window.location.hash.slice(1);
     if (!id || !isFinite(id)) return;
     resultsView.update(model.state.search.resultsPerPage);
+    watchlistView.update(model.state.watchlist);
     movieView.renderSpiner();
     await model.loadMovie(id);
     movieView.render(model.state.movie);
-    console.log(model.state.movie);
   } catch (err) {
     console.log(err);
   }
@@ -43,11 +44,17 @@ const controlCountry = function () {
   countryView.toggleHidden();
   countryView.render(model.state.country);
 };
+const controlWatchlist = function () {
+  model.loadWatchlist();
+  watchlistView.render(model.state.watchlist);
+};
 const init = function () {
   movieView.addHandlerRender(controlMovie);
   searchView.addHandlerSearch(controlSearch);
   paginationView.addHandlerPagination(controlPagination);
   countryView.addHandlerRender(controlCountry);
   countryView.handlerClick();
+  watchlistView.addHandlerClick();
+  movieView.addHandlerBtnWatchlist(controlWatchlist);
 };
 init();
