@@ -180,37 +180,36 @@ a:visited {
   font-size: 1.8rem;
   color: var(--white);
 }
-
 .watchlist {
   position: relative;
 }
-.watchlist .active {
-  transform: translateY(1.1rem) scale(1.05);
-}
-.watchlist .watchlist-btn {
+.btn-watchlist {
   position: relative;
-  z-index: 999;
+  z-index: 9;
 }
-
+.watchlist-item-placeholder {
+  text-align: center;
+  padding-bottom: 1.6rem;
+}
 .watchlist-items {
+  position: absolute;
+  background-color: #ced4da;
+  top: 0%;
+  padding-top: 6.4rem;
+  transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  top: 0.5rem;
-  position: absolute;
-  transform: scale(1.05);
-  border-radius: var(--mid-radius) var(--mid-radius) 0 0;
-  background-color: #ced4da;
-  padding: 3.8rem 1.2rem 1.2rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out,
-    transform 1s ease-in-out;
-  text-align: center;
+  border-radius: 2rem 2rem 0 0;
+}
+.watchlist-items.hidden {
+  transform: translateY(-1.1rem);
+}
+.watchlist-items h3 {
+  font-size: 1.6rem;
 }
 .watchlist-items svg {
   color: var(--red);
+  font-size: 2.4rem;
 }
 
 .search-results {
@@ -458,4 +457,11 @@ h3 span {
 }
 .btn-small svg {
   color: var(--main-font-color);
+  transition: all 0.3s ease-in-out;
+}
+.btn-small.active {
+  border: 1px solid var(--background-body-grey);
+}
+.btn-small.active svg {
+  color: var(--red);
 }
