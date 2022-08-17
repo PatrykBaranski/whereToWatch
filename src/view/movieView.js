@@ -4,7 +4,10 @@ class MovieView extends View {
   _parentEl = document.querySelector(".movie");
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((ev) =>
-      window.addEventListener(ev, handler)
+      window.addEventListener(ev, (e) => {
+        this._parentEl.classList.add("active");
+        handler();
+      })
     );
   }
   addHandlerBtnWatchlist(handler) {

@@ -23,6 +23,7 @@ const controlSearch = async function () {
     if (!searchView.query) return;
     resultsView.renderSpiner();
     await model.loadSearch(searchView.query);
+
     model.loadResults(model.state.search.page);
     resultsView.render(model.state.search.resultsPerPage);
     paginationView.render(model.state.search);
@@ -39,6 +40,7 @@ const controlCountry = function () {
   const id = window.location.hash.slice(1);
   if (!id || isFinite(id)) return;
   const indexOfSymbol = id.indexOf("/");
+  if (indexOfSymbol === -1) return;
   const countryName = id.slice(indexOfSymbol + 1).replaceAll("%20", " ");
   model.loadCountry(countryName);
   countryView.toggleHidden();

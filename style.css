@@ -194,10 +194,11 @@ a:visited {
 }
 .watchlist {
   position: relative;
+  z-index: 11;
 }
 .btn-watchlist {
   position: relative;
-  z-index: 9;
+  z-index: 12;
 }
 .watchlist-item-placeholder {
   text-align: center;
