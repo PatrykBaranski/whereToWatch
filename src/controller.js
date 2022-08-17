@@ -15,7 +15,7 @@ const controlMovie = async function () {
     await model.loadMovie(id);
     movieView.render(model.state.movie);
   } catch (err) {
-    console.log(err);
+    movieView.renderError("Sorry, We didn't find any movie with this ID");
   }
 };
 const controlSearch = async function () {
@@ -27,7 +27,7 @@ const controlSearch = async function () {
     resultsView.render(model.state.search.resultsPerPage);
     paginationView.render(model.state.search);
   } catch (err) {
-    console.log(err);
+    resultsView.renderError("Sorry, we couldn't find anything for this query");
   }
 };
 const controlPagination = function () {

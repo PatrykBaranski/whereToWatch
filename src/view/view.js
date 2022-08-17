@@ -12,6 +12,13 @@ export default class View {
       this._genrateSpinerMarkup()
     );
   }
+  renderError(errorMessage) {
+    this._clear();
+    this._parentEl.insertAdjacentHTML(
+      "afterbegin",
+      this._generateErrorMarkup(errorMessage)
+    );
+  }
   update(data) {
     this._data = data;
     const newMarkup = this._genrateMarkup();
@@ -43,5 +50,13 @@ export default class View {
       <div class="spinner-element spinner-element--red"></div>
       <div class="spinner-element spinner-element--gray"></div>
   </div>`;
+  }
+  _generateErrorMarkup(errorMessage) {
+    return `
+         <div class="error-message">
+           <span class="fa-solid fa-triangle-exclamation"></span>
+           <p>${errorMessage}</p>
+          </div>
+          `;
   }
 }

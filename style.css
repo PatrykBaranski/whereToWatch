@@ -60,8 +60,20 @@ a:visited {
   align-self: center;
   justify-self: center;
 }
-.results .spinner {
-  margin: auto auto;
+.results .spinner,
+.results .error-message {
+  margin: 16rem auto;
+}
+.error-message {
+  font-size: 2.4rem;
+  text-align: center;
+}
+.error-message svg {
+  color: var(--red);
+  font-size: 3.2rem;
+}
+.results {
+  overflow: hidden;
 }
 .spinner-element {
   position: absolute;
@@ -192,6 +204,7 @@ a:visited {
   padding-bottom: 1.6rem;
 }
 .watchlist-items {
+  box-shadow: 0 0.5rem 1rem var(--box-shadow-color);
   position: absolute;
   background-color: #ced4da;
   top: 0%;
@@ -200,6 +213,7 @@ a:visited {
   display: flex;
   flex-direction: column;
   border-radius: 2rem 2rem 0 0;
+  right: 0;
 }
 .watchlist-items.hidden {
   transform: translateY(-0.1rem);
@@ -247,7 +261,8 @@ a:visited {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-.movie .placeholder {
+.movie .placeholder,
+.movie .error-message {
   grid-column: 1/-1;
   max-width: 400px;
   padding: 4.8rem 2.4rem;
